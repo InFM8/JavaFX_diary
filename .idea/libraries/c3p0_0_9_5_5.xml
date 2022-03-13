@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="c3p0-0.9.5.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs2/c3p0-0.9.5.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs2/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs2/junit-4.13.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs2/mchange-commons-java-0.2.19.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs2/mysql-connector-java-8.0.28.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
