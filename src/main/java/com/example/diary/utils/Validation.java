@@ -12,11 +12,8 @@ public class Validation {
     public static final String ID_REGEX_PATTERN = "^[0-9]{1,3}$";
 
     public static boolean isValidUsername(String username) {
-        //Sukuriamos validacijos taisyklės pagal anksčiau apsirašytą šabloną
         Pattern pattern = Pattern.compile(USERNAME_REGEX_PATTERN);
-        //Validacijos atitikmens sukūrimas palyginant vartotojo įvestą username su validacijos taisyklėmis
         Matcher matcher = pattern.matcher(username);
-        //Grąžins true jeigu atitiks vartotojo susikurtas vardas mūsų susikurtą validaciją, priešingu atveju - false.
         return matcher.find();
     }
 

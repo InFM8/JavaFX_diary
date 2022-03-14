@@ -5,4 +5,7 @@
 .button{
     -fx-background-color: #A0522D;
 }
+.textField {
+    -fx-background-color: #ffe4b5;
+}
 

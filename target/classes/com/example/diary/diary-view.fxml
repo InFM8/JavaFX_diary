@@ -2,8 +2,9 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diary.controller.DiaryController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -11,13 +12,45 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <SplitPane dividerPositions="0.19899665551839466" prefHeight="160.0" prefWidth="200.0">
+      <SplitPane dividerPositions="0.1712962962962963" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="root">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="157.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="91.0" prefWidth="598.0">
                <children>
-                  <Label text="Label" />
-               </children></AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                  <Button layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#onDeleteButton" prefHeight="21.0" prefWidth="59.0" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="717.0" layoutY="42.0" mnemonicParsing="false" onAction="#onUpdateButton" prefHeight="21.0" prefWidth="59.0" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="717.0" layoutY="13.0" mnemonicParsing="false" onAction="#onCreateButton" prefHeight="13.0" prefWidth="59.0" text="Create" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="638.0" layoutY="12.0" mnemonicParsing="false" onAction="#onSearchButton" prefHeight="84.0" prefWidth="70.0" text="Search" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="id" layoutX="7.0" layoutY="11.0" prefHeight="63.0" prefWidth="35.0" promptText="ID" styleClass="textField">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="title" alignment="CENTER" layoutX="48.0" layoutY="11.0" prefHeight="63.0" prefWidth="98.0" promptText="TITLE" styleClass="textField" />
+                  <TextField fx:id="text" alignment="CENTER" layoutX="153.0" layoutY="11.0" prefHeight="63.0" prefWidth="478.0" promptText="TEXT" styleClass="textField" />
+                  <Label fx:id="status" alignment="CENTER" layoutX="8.0" layoutY="75.0" prefHeight="19.0" prefWidth="623.0" textFill="#900000">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
         </items>
       </SplitPane>
    </children>

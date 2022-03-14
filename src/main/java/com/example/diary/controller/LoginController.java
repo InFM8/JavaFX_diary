@@ -32,6 +32,10 @@ public class LoginController {
     private Label status;
 
     @FXML
+    public void onEnter(ActionEvent event) throws IOException {
+        onSignInButton(event);
+    }
+    @FXML
     public void onSignInButton(ActionEvent event) throws IOException {
         String mail = email.getText();
         String pass = password.getText();
@@ -43,6 +47,7 @@ public class LoginController {
                 boolean isValidPassword = BCryptPassword.checkPassword(pass, passwordDB);
                 if (isValidPassword) {
                     status.setText("Joined succesfully.");
+                    goToDiary(event);
                 } else {
                     status.setText("Incorrect email or password.");
                 }
@@ -57,6 +62,15 @@ public class LoginController {
         Stage regStage = new Stage();
         regStage.setTitle("Register");
         regStage.setScene(new Scene(root, 300, 300));
+        regStage.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+    }
+    @FXML
+    public void goToDiary(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(MainApplication.class.getResource("diary-view.fxml"));
+        Stage regStage = new Stage();
+        regStage.setTitle("Register");
+        regStage.setScene(new Scene(root, 800, 643));
         regStage.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
