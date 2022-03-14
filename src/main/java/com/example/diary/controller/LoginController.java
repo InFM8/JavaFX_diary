@@ -1,11 +1,13 @@
 package com.example.diary.controller;
 
+
 import com.example.diary.MainApplication;
 import com.example.diary.model.UserDAO;
 import com.example.diary.utils.BCryptPassword;
 import com.example.diary.utils.Validation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -14,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 
 import java.io.IOException;
 
@@ -48,5 +51,13 @@ public class LoginController {
             status.setText("Incorrect data.");
         }
     }
-
+    @FXML
+    public void onRegisterButton(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(MainApplication.class.getResource("register-view.fxml"));
+        Stage regStage = new Stage();
+        regStage.setTitle("Register");
+        regStage.setScene(new Scene(root, 300, 300));
+        regStage.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+    }
 }

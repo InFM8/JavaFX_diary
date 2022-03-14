@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="280.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diary.controller.LoginController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="280.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diary.controller.LoginController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -14,14 +14,14 @@
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button layoutX="159.0" layoutY="144.0" mnemonicParsing="false" onAction="#onSignInButton" prefHeight="21.0" prefWidth="107.0" text="Sign in">
+            <Button layoutX="165.0" layoutY="143.0" mnemonicParsing="false" onAction="#onSignInButton" prefHeight="24.0" prefWidth="101.0" text="Sign in">
                <font>
                   <Font name="System Bold Italic" size="10.0" />
                </font>
             </Button>
-            <Button layoutX="24.0" layoutY="144.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="107.0" text="Register">
+            <Button layoutX="19.0" layoutY="146.0" mnemonicParsing="false" onAction="#onRegisterButton" prefHeight="0.0" prefWidth="69.0" text="Register">
                <font>
-                  <Font name="System Bold Italic" size="10.0" />
+                  <Font name="System Bold Italic" size="9.0" />
                </font>
             </Button>
             <Label alignment="CENTER" layoutY="56.0" prefHeight="24.0" prefWidth="107.0" text="Email : ">
@@ -35,12 +35,15 @@
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="-2.0" layoutY="14.0" prefHeight="27.0" prefWidth="280.0" text="Login">
+            <Label alignment="CENTER" layoutY="14.0" prefHeight="27.0" prefWidth="280.0" text="Login">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="status" alignment="CENTER" layoutX="-2.0" layoutY="122.0" prefHeight="17.0" prefWidth="280.0" />
+            <Label fx:id="status" alignment="CENTER" layoutX="-2.0" layoutY="122.0" prefHeight="17.0" prefWidth="280.0" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Label>
             <PasswordField fx:id="password" layoutX="116.0" layoutY="88.0" prefHeight="25.0" prefWidth="152.0" />
          </children>
       </Pane>

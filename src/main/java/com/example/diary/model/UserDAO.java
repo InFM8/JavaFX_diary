@@ -1,14 +1,12 @@
 package com.example.diary.model;
 
-import com.mysql.cj.protocol.Resultset;
-import javax.xml.transform.Result;
 import java.sql.*;
 
 public class UserDAO {
 
     String url = "jdbc:mysql://localhost:3306/diary";
 
-    public void create(User user) {
+    public void insert(User user) {
         String query = "INSERT INTO users(email,password) VALUES (?, ?)";
 
         try {
@@ -29,7 +27,7 @@ public class UserDAO {
         }
     }
     public String getBCryptPassword(String username) {
-        String query = "SELECT password FROM users WHERE username = ?";
+        String query = "SELECT password FROM users WHERE email = ?";
 
         String passwordBCrypted = "";
 
