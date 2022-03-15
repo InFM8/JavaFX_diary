@@ -8,6 +8,7 @@ public class Validation {
     public static final String PASSWORD_REGEX_PATTERN = "^[A-Za-z0-9!@#$%]{5,13}$";
     public static final String EMAIL_REGEX_PATTERN = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$";
     public static final String TITLE_REGEX_PATTERN = "^[A-Za-z0-9 ]{5,25}$";
+
     public static final String TIME_REGEX_PATTERN = "^[0-9]{1,13}$";
     public static final String ID_REGEX_PATTERN = "^[0-9]{1,3}$";
 

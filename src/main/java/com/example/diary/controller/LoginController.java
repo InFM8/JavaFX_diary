@@ -2,7 +2,9 @@ package com.example.diary.controller;
 
 
 import com.example.diary.MainApplication;
+import com.example.diary.model.User;
 import com.example.diary.model.UserDAO;
+import com.example.diary.model.UserSingleton;
 import com.example.diary.utils.BCryptPassword;
 import com.example.diary.utils.Validation;
 import javafx.event.ActionEvent;
@@ -46,7 +48,10 @@ public class LoginController {
             } else {
                 boolean isValidPassword = BCryptPassword.checkPassword(pass, passwordDB);
                 if (isValidPassword) {
-                    status.setText("Joined succesfully.");
+
+                    UserSingleton us = UserSingleton.getInstance();
+                    us.setEmail(mail);
+
                     goToDiary(event);
                 } else {
                     status.setText("Incorrect email or password.");

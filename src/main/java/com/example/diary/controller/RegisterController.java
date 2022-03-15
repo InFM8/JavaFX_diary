@@ -52,7 +52,10 @@ public class RegisterController {
         if (!Validation.isValidPassword(confirmPass1)) status.setText("Incorrect confirm password.");
         if (!Validation.isValidEmail(email1)) status.setText("Incorrect email.");
     }
-
+    @FXML
+    public void onEnter(ActionEvent event) throws IOException {
+        regRegisterButton(event);
+    }
 
 
     @FXML

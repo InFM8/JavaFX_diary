@@ -26,18 +26,19 @@ public class UserDAO {
             System.err.println("created unsuccessfully");
         }
     }
+
     public String getBCryptPassword(String username) {
         String query = "SELECT password FROM users WHERE email = ?";
 
         String passwordBCrypted = "";
 
         try {
-            Connection con = DriverManager.getConnection(url, "root" ,"");
+            Connection con = DriverManager.getConnection(url, "root", "");
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
 
-            while(rs.next()) {
+            while (rs.next()) {
                 passwordBCrypted = rs.getString("password");
             }
             ps.close();
@@ -46,6 +47,32 @@ public class UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-            return passwordBCrypted;
+        return passwordBCrypted;
     }
+
+    public int searchIdByEmail(String email) {
+        String query = "";
+        query = "SELECT id FROM users WHERE email = ?";
+        int email2 = 0;
+
+        try {
+            Connection con = DriverManager.getConnection(url, "root", "");
+            PreparedStatement ps = con.prepareStatement(query);
+
+            ps.setString(1, email);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                email2 = rs.getInt("id");
+            }
+            ps.close();
+            con.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return email2;
+    }
+
 }

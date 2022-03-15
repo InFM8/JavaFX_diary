@@ -18,7 +18,11 @@ public class Diary {
         this.text = text;
         this.user_id = user_id;
     }
-
+    public Diary(int id, String title, String text) {
+        this.id = id;
+        this.title = title;
+        this.text = text;
+    }
     public Diary(String title, String text) {
         this.title = title;
         this.text = text;
