@@ -47,23 +47,23 @@ public class RegisterController {
         }
 
 
-
         if (!Validation.isValidPassword(pass1)) status.setText("Incorrect password.");
         if (!Validation.isValidPassword(confirmPass1)) status.setText("Incorrect confirm password.");
         if (!Validation.isValidEmail(email1)) status.setText("Incorrect email.");
     }
+
     @FXML
     public void onEnter(ActionEvent event) throws IOException {
         regRegisterButton(event);
     }
 
-
     @FXML
     public void regBackButton(ActionEvent event) throws IOException {
         goToLogin(event);
     }
+
     @FXML
-    public void goToLogin(ActionEvent event) throws  IOException {
+    public void goToLogin(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(MainApplication.class.getResource("login-view.fxml"));
         Stage loginStage = new Stage();
         loginStage.setTitle("Login");

@@ -43,7 +43,7 @@
                   </TextField>
                   <TextField fx:id="title" alignment="CENTER" layoutX="48.0" layoutY="11.0" prefHeight="63.0" prefWidth="98.0" promptText="TITLE" styleClass="textField" />
                   <TextField fx:id="text" alignment="CENTER" layoutX="153.0" layoutY="11.0" onAction="#onEnter" prefHeight="63.0" prefWidth="478.0" promptText="TEXT" styleClass="textField" />
-                  <Label fx:id="status" alignment="CENTER" layoutX="251.0" layoutY="83.0" prefHeight="24.0" prefWidth="242.0" textFill="#900000">
+                  <Label fx:id="status" alignment="CENTER" layoutX="-1.0" layoutY="83.0" prefHeight="24.0" prefWidth="798.0" textFill="#900000">
                      <font>
                         <Font name="System Bold Italic" size="13.0" />
                      </font>
@@ -66,6 +66,14 @@
                         <Font name="System Bold Italic" size="11.0" />
                      </font>
                   </Button>
+                  <TableView fx:id="table" prefHeight="484.0" prefWidth="798.0" styleClass="textField">
+                    <columns>
+                      <TableColumn fx:id="tableId" prefWidth="31.0" styleClass="root" text="Id" />
+                      <TableColumn fx:id="tableTitle" prefWidth="192.0" styleClass="root" text="Title" />
+                        <TableColumn fx:id="tableText" prefWidth="493.0" styleClass="root" text="Text" />
+                        <TableColumn fx:id="tableUserId" prefWidth="81.0" styleClass="root" text="User id" />
+                    </columns>
+                  </TableView>
                </children></AnchorPane>
         </items>
       </SplitPane>

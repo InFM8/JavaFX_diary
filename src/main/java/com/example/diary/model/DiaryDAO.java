@@ -33,11 +33,14 @@ public class DiaryDAO {
 
     public List<Diary> searchAllObjectOrByTitle(String title) {
         String query = "";
+
         int userID = userDAO.searchIdByEmail(UserSingleton.getInstance().getEmail());
+
         if (title.isEmpty()) {
+//            query = "SELECT * FROM diary WHERE user_id = " + userID;
             query = "SELECT * FROM diary";
         } else {
-            query = "SELECT * FROM diary WHERE title LIKE '%" + title + "%' AND user_id = " + userID;
+            query = "SELECT * FROM diary WHERE title LIKE '%"+title+"%'";
         }
         ArrayList<Diary> list = new ArrayList<>();
         try {
@@ -47,11 +50,15 @@ public class DiaryDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                list.add(new Diary(rs.getInt("id"), rs.getString("title"), rs.getString("text"), rs.getInt("user_id")));
+                list.add(new Diary(
+                        rs.getInt("id"),
+                        rs.getString("title"),
+                        rs.getString("text"),
+                        rs.getInt("user_id")));
             }
+
             ps.close();
             con.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
