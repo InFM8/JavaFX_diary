@@ -80,7 +80,15 @@ public class DiaryController implements Initializable {
 
     @FXML
     public void onDeleteButton(ActionEvent event) throws IOException {
+        String id1 = id.getText();
 
+        if (!Validation.isValidId(id1)) {
+            status.setText("Enter a valid id.");
+        } else {
+            int id2 = Integer.parseInt(id1);
+            diaryDAO.deleteByID(id2);
+            status.setText("Record deleted."); // if it existed.
+        }
     }
 
     @FXML

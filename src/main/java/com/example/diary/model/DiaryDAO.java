@@ -32,13 +32,12 @@ public class DiaryDAO {
     }
 
     public List<Diary> searchAllObjectOrByTitle(String title) {
-
         String query = "";
         int userID = userDAO.searchIdByEmail(UserSingleton.getInstance().getEmail());
         if (title.isEmpty()) {
             query = "SELECT * FROM diary";
         } else {
-            query = "SELECT * FROM diary WHERE title LIKE '%" + title + "%' AND user_id = " +userID ;
+            query = "SELECT * FROM diary WHERE title LIKE '%" + title + "%' AND user_id = " + userID;
         }
         ArrayList<Diary> list = new ArrayList<>();
         try {
@@ -48,12 +47,7 @@ public class DiaryDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                list.add(new Diary(
-                        rs.getInt("id"),
-                        rs.getString("title"),
-                        rs.getString("text"),
-                        rs.getInt("user_id")
-                ));
+                list.add(new Diary(rs.getInt("id"), rs.getString("title"), rs.getString("text"), rs.getInt("user_id")));
             }
             ps.close();
             con.close();
@@ -83,6 +77,7 @@ public class DiaryDAO {
             e.printStackTrace();
         }
     }
+
     public int searchUserIdByTitle(String title) {
         String query = "";
         query = "SELECT user_id FROM diary WHERE title = ?";
@@ -106,5 +101,21 @@ public class DiaryDAO {
             e.printStackTrace();
         }
         return title2;
+    }
+
+    public void deleteByID(int id) {
+        String query = "DELETE FROM diary WHERE id = ?";
+
+        try {
+            Connection con = DriverManager.getConnection(url, "root", "");
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
