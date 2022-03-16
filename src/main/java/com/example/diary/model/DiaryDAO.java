@@ -39,7 +39,7 @@ public class DiaryDAO {
         if (title.isEmpty()) {
             query = "SELECT * FROM diary WHERE user_id = " + userID;
         } else {
-            query = "SELECT * FROM diary WHERE title LIKE '%" + title + "%'";
+            query = "SELECT * FROM diary WHERE title LIKE '%" + title + "%' AND user_id = "+userID;
         }
         ArrayList<Diary> list = new ArrayList<>();
         try {
@@ -82,31 +82,6 @@ public class DiaryDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public int searchUserIdByTitle(String title) {
-        String query = "";
-        query = "SELECT user_id FROM diary WHERE title = ?";
-        int title2 = 0;
-
-        try {
-            Connection con = DriverManager.getConnection(url, "root", "");
-            PreparedStatement ps = con.prepareStatement(query);
-
-            ps.setString(1, title);
-
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                title2 = rs.getInt("id");
-            }
-            ps.close();
-            con.close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return title2;
     }
 
     public void deleteByID(int id) {
