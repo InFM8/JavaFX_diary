@@ -37,10 +37,9 @@ public class DiaryDAO {
         int userID = userDAO.searchIdByEmail(UserSingleton.getInstance().getEmail());
 
         if (title.isEmpty()) {
-//            query = "SELECT * FROM diary WHERE user_id = " + userID;
-            query = "SELECT * FROM diary";
+            query = "SELECT * FROM diary WHERE user_id = " + userID;
         } else {
-            query = "SELECT * FROM diary WHERE title LIKE '%"+title+"%'";
+            query = "SELECT * FROM diary WHERE title LIKE '%" + title + "%'";
         }
         ArrayList<Diary> list = new ArrayList<>();
         try {
