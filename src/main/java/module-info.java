@@ -4,6 +4,7 @@ module com.example.diary {
     requires mysql.connector.java;
     requires java.sql;
     requires java.xml;
+    requires junit;
 
     opens com.example.diary to javafx.fxml;
     exports com.example.diary;

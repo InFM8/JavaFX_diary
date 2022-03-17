@@ -59,7 +59,7 @@
                   </Label>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="tableColumnCol">
                <children>
                   <Button layoutX="732.0" layoutY="496.0" mnemonicParsing="false" onAction="#onLogOutButton" prefHeight="24.0" prefWidth="59.0" text="Log out" textFill="WHITE">
                      <font>
@@ -68,9 +68,9 @@
                   </Button>
                   <TableView fx:id="table" prefHeight="484.0" prefWidth="798.0" styleClass="textField">
                     <columns>
-                      <TableColumn fx:id="tableId" prefWidth="31.0" styleClass="root" text="Id" />
-                      <TableColumn fx:id="tableTitle" prefWidth="192.0" styleClass="tableColumnCol" text="Title" />
-                        <TableColumn fx:id="tableText" maxWidth="524.0" prefWidth="524.0" styleClass="tableColumnCol" text="Text" />
+                      <TableColumn fx:id="tableId" prefWidth="32.0" styleClass="root" text="Id" />
+                      <TableColumn fx:id="tableTitle" prefWidth="191.0" styleClass="title" text="Title" />
+                        <TableColumn fx:id="tableText" maxWidth="524.0" prefWidth="524.0" styleClass="text" text="Text" />
                         <TableColumn fx:id="tableUserId" prefWidth="50.0" styleClass="root" text="User id" />
                     </columns>
                   </TableView>

@@ -37,7 +37,7 @@ public class RegisterController {
         String confirmPass1 = confirmPass.getText();
 
         if (Validation.isValidEmail(email1) && Validation.isValidPassword(pass1) && Validation.isValidPassword(confirmPass1)) {
-            status.setText("Registered succesfully.");
+            status.setText("Registered successfully.");
             String passBCrypt = BCryptPassword.hashPassword(pass1);
 
             User user = new User(email1, passBCrypt);
@@ -45,7 +45,6 @@ public class RegisterController {
 
             goToLogin(event);
         }
-
 
         if (!Validation.isValidPassword(pass1)) status.setText("Incorrect password.");
         if (!Validation.isValidPassword(confirmPass1)) status.setText("Incorrect confirm password.");

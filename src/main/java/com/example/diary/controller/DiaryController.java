@@ -69,14 +69,13 @@ public class DiaryController implements Initializable {
             tableId.setCellValueFactory(new PropertyValueFactory<>("id"));
             tableTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
             tableText.setCellValueFactory(new PropertyValueFactory<>("text"));
-
             tableUserId.setCellValueFactory(new PropertyValueFactory<>("user_id"));
 
             table.setItems(list);
-            table.getItems();
+//            table.getItems();
         }
         if (ls.isEmpty()) {
-            status.setText("Failed search.");
+            status.setText("Failed search. (Probably there is no data)");
         } else {
             status.setText("Found successfully.");
         }
@@ -84,7 +83,6 @@ public class DiaryController implements Initializable {
 
     @FXML
     public void onCreateButton(ActionEvent event) throws IOException {
-
         String title1 = title.getText();
         String text1 = text.getText();
 
@@ -140,10 +138,12 @@ public class DiaryController implements Initializable {
     public void onEnterCreate(ActionEvent event) throws IOException {
         onCreateButton(event);
     }
+
     @FXML
-    public void onEnterSearch() throws IOException {
+    public void onEnterSearch() {
         onSearchButton();
     }
+
     @FXML
     public void onIdDelete(ActionEvent event) throws IOException {
         onDeleteButton(event);

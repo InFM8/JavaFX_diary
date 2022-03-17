@@ -7,9 +7,13 @@
 .textField {
     -fx-background-color: #ffe4b5;
 }
-.tableColumnCol {
+.title {
     -fx-background-color: #cca776;
-   /* -fx-alignment: CENTER;
-    */
+      -fx-alignment: CENTER;
+
+}
+.text {
+    -fx-background-color: #cca776;
+    -fx-max-width: 200;
 }
 

@@ -1,6 +1,8 @@
 package com.example.diary.model;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 
@@ -74,5 +76,34 @@ public class UserDAO {
         }
         return email2;
     }
+    public User searchAllByEmail(String email) {
+        String query = "SELECT * FROM users WHERE email = ?";
+        ArrayList<User> list = new ArrayList<>();
 
+        try {
+            Connection con = DriverManager.getConnection(url, "root", "");
+            PreparedStatement ps = con.prepareStatement(query);
+
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                list.add(new User(
+                        rs.getInt("id"),
+                        rs.getString("email"),
+                        rs.getString("password")
+                ));
+            }
+            ps.close();
+            con.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            return list.get(0);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
+    }
 }
