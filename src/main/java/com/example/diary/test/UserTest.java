@@ -1,7 +1,6 @@
 package com.example.diary.test;
 
 import com.example.diary.utils.BCryptPassword;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,10 +22,11 @@ public class UserTest {
 
     @Test
     public void createUserPositiveTest() {
-         userDAO.insert(userLocalPositive);
-         userDB = userDAO.searchAllByEmail("test@test.com");
-         compareUsers(userLocalPositive, userDB);
+        userDAO.insert(userLocalPositive);
+        userDB = userDAO.searchAllByEmail("test@test.com");
+        compareUsersEquals(userLocalPositive, userDB);
     }
+
     @Test
     public void createUserNegativeTest() {
         userDAO.insert(userLocalNegative);
@@ -34,17 +34,27 @@ public class UserTest {
         compareUsersNotEquals(userLocalNegative, userDB);
     }
 
-    private void compareUsers(User userLocal, User userDB) {
+    @Test
+    public void searchUserPositiveTest() {
+        userDB = userDAO.searchAllByEmail("test@test.com");
+        compareUsersEquals(userLocalPositive, userDB);
+    }
+
+    @Test
+    public void searchUserNegativeTest() {
+        userDB = userDAO.searchAllByEmail("test@test.com");
+        compareUsersNotEquals(userLocalNegative, userDB);
+    }
+
+    private void compareUsersEquals(User userLocal, User userDB) {
         boolean pass = BCryptPassword.checkPassword(userLocal.getPassword(), userDB.getPassword());
 
         Assert.assertEquals(userLocal.getEmail(), userDB.getEmail());
         Assert.assertEquals(true, pass);
     }
+
     private void compareUsersNotEquals(User userLocal, User userDB) {
         Assert.assertNotEquals(userLocal.getEmail(), userDB.getEmail());
         Assert.assertNotEquals(userLocal.getPassword(), userDB.getPassword());
     }
-
-
-
 }
