@@ -1,5 +1,6 @@
 package com.example.diary.test;
 
+import com.example.diary.utils.BCryptPassword;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,12 +27,24 @@ public class UserTest {
          userDB = userDAO.searchAllByEmail("test@test.com");
          compareUsers(userLocalPositive, userDB);
     }
+    @Test
+    public void createUserNegativeTest() {
+        userDAO.insert(userLocalNegative);
+        userDB = userDAO.searchAllByEmail("testneg@test.com");
+        compareUsersNotEquals(userLocalNegative, userDB);
+    }
 
     private void compareUsers(User userLocal, User userDB) {
-        Assert.assertEquals(userLocal.getEmail(), userDB.getEmail());
-        Assert.assertEquals(userLocal.getPassword(), userDB.getPassword());
+        boolean pass = BCryptPassword.checkPassword(userLocal.getPassword(), userDB.getPassword());
 
+        Assert.assertEquals(userLocal.getEmail(), userDB.getEmail());
+        Assert.assertEquals(true, pass);
     }
+    private void compareUsersNotEquals(User userLocal, User userDB) {
+        Assert.assertNotEquals(userLocal.getEmail(), userDB.getEmail());
+        Assert.assertNotEquals(userLocal.getPassword(), userDB.getPassword());
+    }
+
 
 
 }

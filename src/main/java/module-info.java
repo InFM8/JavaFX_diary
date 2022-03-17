@@ -14,4 +14,8 @@ module com.example.diary {
 
     opens com.example.diary.model to javafx.fxml;
     exports com.example.diary.model;
+
+    opens com.example.diary.test to javafx.fxml;
+    exports com.example.diary.test;
+
 }
