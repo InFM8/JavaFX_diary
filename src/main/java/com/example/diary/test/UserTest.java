@@ -17,7 +17,7 @@ public class UserTest {
     @Before
     public void setup() {
         userLocalPositive = new User("test@test.com", "test1");
-        userLocalNegative = new User("testneg@test.com", "test1");
+        userLocalNegative = new User("testneg@test.com", "test2");
     }
 
     @Test
@@ -29,8 +29,7 @@ public class UserTest {
 
     @Test
     public void createUserNegativeTest() {
-        userDAO.insert(userLocalNegative);
-        userDB = userDAO.searchAllByEmail("testneg@test.com");
+        userDB = userDAO.searchAllByEmail("test@test.com");
         compareUsersNotEquals(userLocalNegative, userDB);
     }
 
