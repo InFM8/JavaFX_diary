@@ -33,26 +33,17 @@ public class UserTest {
         compareUsersNotEquals(userLocalNegative, userDB);
     }
 
-    @Test
-    public void searchUserPositiveTest() {
-        userDB = userDAO.searchAllByEmail("test@test.com");
-        compareUsersEquals(userLocalPositive, userDB);
-    }
-
-    @Test
-    public void searchUserNegativeTest() {
-        userDB = userDAO.searchAllByEmail("test@test.com");
-        compareUsersNotEquals(userLocalNegative, userDB);
-    }
 
     private void compareUsersEquals(User userLocal, User userDB) {
-        boolean pass = BCryptPassword.checkPassword(userLocal.getPassword(), userDB.getPassword());
+
+        boolean pass = BCryptPassword.checkPassword(userLocal.getPassword(),userDB.getPassword());
 
         Assert.assertEquals(userLocal.getEmail(), userDB.getEmail());
         Assert.assertEquals(true, pass);
     }
 
     private void compareUsersNotEquals(User userLocal, User userDB) {
+
         Assert.assertNotEquals(userLocal.getEmail(), userDB.getEmail());
         Assert.assertNotEquals(userLocal.getPassword(), userDB.getPassword());
     }

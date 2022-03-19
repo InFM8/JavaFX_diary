@@ -99,4 +99,40 @@ public class DiaryDAO {
             e.printStackTrace();
         }
     }
+
+    /**
+     *  For test
+     */
+    public Diary searchByTitle(String title) {
+        String query = "SELECT * FROM diary WHERE title = ?";
+        ArrayList<Diary> list = new ArrayList<>();
+
+        try {
+            Connection con = DriverManager.getConnection(url, "root", "");
+            PreparedStatement ps = con.prepareStatement(query);
+
+            ps.setString(1, title);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                list.add(new Diary(
+                        rs.getInt("id"),
+                        rs.getString("title"),
+                        rs.getString("text"),
+                        rs.getInt("user_id")
+                ));
+            }
+            ps.close();
+            con.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            return list.get(0);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
+    }
 }
