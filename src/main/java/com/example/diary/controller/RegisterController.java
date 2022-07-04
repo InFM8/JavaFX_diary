@@ -37,18 +37,27 @@ public class RegisterController {
         String confirmPass1 = confirmPass.getText();
 
         if (Validation.isValidEmail(email1) && Validation.isValidPassword(pass1) && Validation.isValidPassword(confirmPass1)) {
-            status.setText("Registered successfully.");
-            String passBCrypt = BCryptPassword.hashPassword(pass1);
-
-            User user = new User(email1, passBCrypt);
-            userDAO.insert(user);
-
-            goToLogin(event);
+            if (confirmPass1.equals(pass1)) {
+                status.setText("Registered successfully.");
+                String passBCrypt = BCryptPassword.hashPassword(pass1);
+                User user = new User(email1, passBCrypt);
+                userDAO.insert(user);
+                goToLogin(event);
+            } else {
+                status.setText("Passwords is not equals.");
+            }
+        }
+        if (!Validation.isValidPassword(pass1)) {
+            status.setText("Incorrect password.");
+        }
+        if (!Validation.isValidPassword(confirmPass1)) {
+            status.setText("Incorrect confirm password.");
+        }
+        if (!Validation.isValidEmail(email1)) {
+            status.setText("Incorrect email.");
         }
 
-        if (!Validation.isValidPassword(pass1)) status.setText("Incorrect password.");
-        if (!Validation.isValidPassword(confirmPass1)) status.setText("Incorrect confirm password.");
-        if (!Validation.isValidEmail(email1)) status.setText("Incorrect email.");
+
     }
 
     @FXML

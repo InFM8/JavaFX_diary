@@ -75,7 +75,7 @@ public class DiaryController implements Initializable {
 //            table.getItems();
         }
         if (ls.isEmpty()) {
-            status.setText("Failed search. (Probably there is no data)");
+            status.setText("You don't have any list yet.");
         } else {
             status.setText("Found successfully.");
         }
@@ -128,9 +128,12 @@ public class DiaryController implements Initializable {
         if (!Validation.isValidId(id1)) {
             status.setText("Enter a valid id.");
         } else {
-            int id2 = Integer.parseInt(id1);
+            Integer id2 = Integer.parseInt(id1);
+            if(id2.equals("" ) || id2==null) {
+                status.setText("Listing with this id is not exist.");
+            }
             diaryDAO.deleteByID(id2);
-            status.setText("Record deleted."); // if it existed.
+            status.setText("Record deleted.");
         }
     }
 
