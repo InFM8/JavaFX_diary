@@ -13,8 +13,11 @@ CREATE TABLE diary(
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-__
-if FK fails =   SET FOREIGN_KEY_CHECKS=0
-		SET FOREIGN_KEY_CHECKS=1
+
+_________________________________________
+if foreign key fails try set check
+
+SET FOREIGN_KEY_CHECKS=0
+
 
 
