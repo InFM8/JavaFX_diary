@@ -46,11 +46,12 @@ public class RegisterController {
                 status.setText("Passwords is not equals.");
             }
         }
-        if (!Validation.isValidPassword(pass1)) {
-            status.setText("Incorrect password.");
-        }
+
         if (!Validation.isValidPassword(confirmPass1)) {
             status.setText("Incorrect confirm password.");
+        }
+        if (!Validation.isValidPassword(pass1)) {
+            status.setText("Incorrect password.");
         }
         if (!Validation.isValidEmail(email1)) {
             status.setText("Incorrect email.");
