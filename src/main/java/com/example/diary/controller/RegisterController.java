@@ -20,7 +20,6 @@ import java.io.IOException;
 
 public class RegisterController {
     UserDAO userDAO = new UserDAO();
-
     @FXML
     private TextField email;
     @FXML
@@ -56,20 +55,16 @@ public class RegisterController {
         if (!Validation.isValidEmail(email1)) {
             status.setText("Incorrect email.");
         }
-
-
     }
 
     @FXML
     public void onEnter(ActionEvent event) throws IOException {
         regRegisterButton(event);
     }
-
     @FXML
     public void regBackButton(ActionEvent event) throws IOException {
         goToLogin(event);
     }
-
     @FXML
     public void goToLogin(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(MainApplication.class.getResource("login-view.fxml"));

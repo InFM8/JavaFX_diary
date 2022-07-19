@@ -30,7 +30,6 @@ import java.util.ResourceBundle;
 public class DiaryController implements Initializable {
     UserDAO userDAO = new UserDAO();
     DiaryDAO diaryDAO = new DiaryDAO();
-
     @FXML
     private TextField id;
     @FXML
@@ -53,7 +52,6 @@ public class DiaryController implements Initializable {
     private TableColumn tableText;
     @FXML
     private TableColumn tableUserId;
-
     ObservableList<Diary> list = FXCollections.observableArrayList();
 
     @FXML
@@ -75,12 +73,11 @@ public class DiaryController implements Initializable {
 //            table.getItems();
         }
         if (ls.isEmpty()) {
-            status.setText("You don't have any list yet.");
+            status.setText("You don't have any listing yet.");
         } else {
             status.setText("Found successfully.");
         }
     }
-
     @FXML
     public void onCreateButton(ActionEvent event) throws IOException {
         String title1 = title.getText();
@@ -136,7 +133,6 @@ public class DiaryController implements Initializable {
             status.setText("Record deleted.");
         }
     }
-
     @FXML
     public void onEnterCreate(ActionEvent event) throws IOException {
         onCreateButton(event);
@@ -165,6 +161,5 @@ public class DiaryController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String email = UserSingleton.getInstance().getEmail();
         userStatus.setText(email);
-
     }
 }

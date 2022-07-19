@@ -19,10 +19,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
 public class LoginController {
     UserDAO userDAO = new UserDAO();
-
     @FXML
     private TextField email;
     @FXML
@@ -34,7 +32,6 @@ public class LoginController {
     public void onEnter(ActionEvent event) throws IOException {
         onSignInButton(event);
     }
-
     @FXML
     public void onSignInButton(ActionEvent event) throws IOException {
         String mail = email.getText();
@@ -46,7 +43,6 @@ public class LoginController {
             } else {
                 boolean isValidPassword = BCryptPassword.checkPassword(pass, passwordDB);
                 if (isValidPassword) {
-
                     UserSingleton us = UserSingleton.getInstance();
                     us.setEmail(mail);
 
@@ -59,7 +55,6 @@ public class LoginController {
             status.setText("Incorrect data.");
         }
     }
-
     @FXML
     public void onRegisterButton(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(MainApplication.class.getResource("register-view.fxml"));
@@ -69,7 +64,6 @@ public class LoginController {
         regStage.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
-
     @FXML
     public void goToDiary(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(MainApplication.class.getResource("diary-view.fxml"));
