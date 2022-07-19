@@ -6,6 +6,7 @@ This is a simple project which allows authenticated users to create and manage d
 
 * JavaFX
 * JDBC
+* MySQL
 
 ### Guidelines for [localhost](https://github.com/InFM8/JavaFX_diary/wiki/Guidelines-for-localhost)
 _____________________________________
