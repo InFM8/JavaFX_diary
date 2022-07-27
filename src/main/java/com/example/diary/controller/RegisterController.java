@@ -43,7 +43,7 @@ public class RegisterController {
                 userDAO.insert(user);
                 goToLogin(event);
             } else {
-                status.setText("Passwords is not equals.");
+                status.setText("Password does not match confirm password.");
             }
         }
 
